@@ -5,8 +5,8 @@ from nengo import spa
 from .configurator import cfg
 from .vocabulator import vocab
 from .loggerator import logger
-from _spaun.modules import Stimulus, Vision, ProdSys, RewardEval, InfoEnc
-from _spaun.modules import TrfmSys, Memory, Monitor, InfoDec, Motor
+from .modules import Stimulus, Vision, ProdSys, RewardEval, InfoEnc
+from .modules import TrfmSys, Memory, Monitor, InfoDec, Motor
 
 # #### DEBUG DUMMY NETWORK IMPORTS ####
 # from _spaun.modules.experimenter import StimulusDummy as Stimulus  # noqa
@@ -20,7 +20,7 @@ def Spaun():
     with model:
         model.config[nengo.Ensemble].max_rates = cfg.max_rates
         model.config[nengo.Ensemble].neuron_type = cfg.neuron_type
-        model.config[nengo.Ensemble].n_neurons = cfg.n_neurons_ens
+        # model.config[nengo.Ensemble].n_neurons = cfg.n_neurons_ens
         model.config[nengo.Connection].synapse = cfg.pstc
 
         model.stim = Stimulus()
